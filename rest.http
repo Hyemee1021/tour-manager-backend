@@ -1,0 +1,119 @@
+@rootAPI = http://localhost:8000/api/v1
+@tourAPI = http://localhost:8000/api/v1/tours
+
+ 
+### create new tour
+POST {{tourAPI}}
+Content-Type: application/json
+
+ {
+    "title": "korea city tour",
+    "city": "Seoul",
+    "address": "Somewhere in London",
+    "distance": 300,
+    "price": 99,
+    "maxGroupSize": 10,
+    "desc": "this is the description",
+    "reviews": [],
+
+    "photo": "/tour-images/tour-img01.jpg",
+    "featured": true
+  }
+
+
+ 
+### create new tour
+get {{tourAPI}}
+
+
+
+### create new tour
+PUT {{tourAPI}}/65c17fd5e6270607753bafcf
+Content-Type: application/json
+
+
+{
+    "title":"K-drama tour"
+}
+
+
+###  delete tour
+DELETE  {{tourAPI}}/65c17fd5e6270607753bafcf
+
+
+
+# =======  all one tour
+### get  profile
+GET  {{tourAPI}}/65bdb010ff452086bc48de98
+
+
+# =======  get tour by search
+### get  profile
+GET  {{rootAPI}}/tours/search/getTourBySearch?city=london&maxGroupSize=10
+
+# =======  get tour by feature
+### get  profile
+GET  {{tourAPI}}/search/getFeaturedTours
+
+
+
+//register
+
+### create new tour
+POST  {{rootAPI}}/auth/register
+Content-Type: application/json
+
+
+{
+    "username":"amy",
+    "email":"a@a.com",
+    "password":"1"
+}
+//login
+
+### create new tour
+POST  {{rootAPI}}/auth/login
+Content-Type: application/json
+
+
+{
+   
+    "email":"a@a.com",
+    "password":"1"
+}
+
+
+//create review
+
+### create new review
+POST  {{rootAPI}}/review/65bdb010ff452086bc48de98
+Content-Type: application/json
+
+
+{
+   
+    "username":"John",
+    "reviewText":"Thank you, Patrick one of my friend who introduced this trip.",
+    "rating":"5"
+}
+
+//create booking
+
+### create new booking
+POST  {{rootAPI}}/booking
+Content-Type: application/json
+
+
+{
+   
+    "tourName":"Bali, Indonesia",
+   "fullName": "Apirri",
+   "guestSize": 2,
+    "phone": 12241223,
+    "bookAt":"2024-02-02"
+}
+//65c23ac864b3cf69a847b030
+//get booking
+
+### get new booking
+GET  {{rootAPI}}/booking/65c23ac864b3cf69a847b030
