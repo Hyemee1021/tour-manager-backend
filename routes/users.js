@@ -6,22 +6,22 @@ import {
   updateUser,
 } from "../controllers/userController.js";
 
-import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
+import { adminAuth, userAuth } from "../utils/verifyToken.js";
 
 //axios
 
 const router = express.Router();
 
 // update  user
-router.put("/:id", verifyUser, updateUser);
+router.put("/:id", userAuth, updateUser);
 
 // delete user
-router.delete("/:id", verifyUser, deleteUser);
+router.delete("/:id", adminAuth, deleteUser);
 
 // get single user
-router.get("/:id", verifyUser, getSingleUser);
+router.get("/:id", userAuth, getSingleUser);
 
 // get all users
-router.get("/", verifyAdmin, getAllUser);
+router.get("/", adminAuth, getAllUser);
 
 export default router;

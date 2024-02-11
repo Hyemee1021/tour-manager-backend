@@ -66,8 +66,8 @@ Content-Type: application/json
 
 {
     "username":"amy",
-    "email":"a@a.com",
-    "password":"1"
+    "email":"c@c.com",
+    "password":"1234"
 }
 //login
 

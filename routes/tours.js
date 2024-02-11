@@ -11,18 +11,18 @@ import {
   getTourCount,
 } from "../controllers/tourController.js";
 
-import { verifyAdmin } from "../utils/verifyToken.js";
+import { adminAuth } from "../utils/verifyToken.js";
 
 //axios
 const router = express.Router();
 
-router.post("/", verifyAdmin, createTour);
+router.post("/", adminAuth, createTour);
 
 // update  tour
-router.put("/:id", verifyAdmin, updateTour);
+router.put("/:id", adminAuth, updateTour);
 
 // delete tour
-router.delete("/:id", verifyAdmin, deleteTour);
+router.delete("/:id", adminAuth, deleteTour);
 
 // get single tour
 router.get("/:id", getSingleTour);

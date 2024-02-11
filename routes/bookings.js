@@ -1,6 +1,6 @@
 import express from "express";
 
-import { verifyAdmin, verifyUser } from "../utils/verifyToken.js";
+import { adminAuth, userAuth } from "../utils/verifyToken.js";
 import {
   createBooking,
   getAllBooking,
@@ -9,8 +9,8 @@ import {
 
 const router = express.Router();
 //router
-router.post("/", verifyUser, createBooking);
-router.get("/:id", verifyUser, getBooking);
-router.get("/", verifyAdmin, getAllBooking);
+router.post("/", userAuth, createBooking);
+router.get("/:id", userAuth, getBooking);
+router.get("/", adminAuth, getAllBooking);
 
 export default router;
