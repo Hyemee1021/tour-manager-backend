@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
-
-export const connectDb = () => {
+import { MongoMemoryServer } from "mongodb-memory-server";
+export const connectDb = async () => {
+  const mongoServer = await MongoMemoryServer.create();
   try {
-    const con = mongoose.connect(process.env.MONGO_URL);
+    const con = await mongoose.connect(process.env.MONGO_URL);
 
     con && console.log("mongoDb is connected");
   } catch (error) {

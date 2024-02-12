@@ -20,7 +20,7 @@ const port = process.env.PORT || 8000;
 // };
 //database connection
 // mongoose.set("strictQuery", false);
-const connect = async () => {
+const connect = () => {
   try {
     const con = mongoose.connect(process.env.MONGO_URI);
     con && console.log("DB connected");
